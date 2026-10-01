@@ -4,7 +4,7 @@ def cadastrar_produto():
         try:
             estoque = int(input("Digite a quantidade inicial: "))
         except ValueError:
-            print("Digite um número.")
+            print("Digite um número inteiro.")
             continue
         if estoque < 0:
             print("O estoque não pode ser negativo.")
@@ -32,7 +32,7 @@ while True:
             try:
                 quantidade = int(input("Digite a quantidade que deseja adicionar: "))
             except ValueError:
-                print("\n" "Entrada inválida. Por favor, digite um número.")
+                print("\n" "Entrada inválida. Por favor, digite um número inteiro.")
                 continue
 
             if quantidade <= 0:
@@ -54,7 +54,7 @@ while True:
                 print("\n" f"{estoque} unidades disponíveis no estoque.")
                 quantidade = int(input("Digite a quantidade que deseja retirar: "))
             except ValueError:
-                print("\n" "Entrada inválida. Por favor, digite um número.")
+                print("\n" "Entrada inválida. Por favor, digite um número inteiro.")
                 continue
 
             if quantidade <= 0:
