@@ -1,21 +1,29 @@
+#Função para cadastrar um produto e sua quantidade inicial no estoque
+
 def cadastrar_produto():
     produto = input("Digite o nome do produto: ")
+
     while True:
+
         try:
             estoque = int(input("Digite a quantidade inicial: "))
         except ValueError:
             print("Digite um número inteiro.")
             continue
+
         if estoque < 0:
             print("O estoque não pode ser negativo.")
             continue
+
         return produto, estoque
 
+#Pega os dois valores retornados e coloca cada um na variável correspondente.
 produto, estoque = cadastrar_produto()
 
 while True:
 
     #Menu de opções
+
     print("\n O que você deseja fazer?")
     print("1. Adicionar produtos ao estoque")
     print("2. Retirar produtos do estoque")
@@ -24,11 +32,14 @@ while True:
 
     opcao = input("\n" "Escolha uma opção: ")
 
-    #Se a opção escolhida for 1 para adicionar produtos ao estoque
+    #Se a opção escolhida for 1, adiciona produtos ao estoque
+
     if opcao == "1":
 
         while True:
-            #Utilizando try e except para tratar a entrada de dados, caso o usuário digite algo que não seja um número inteiro.
+
+            #Trata entradas que não sejam números inteiros
+
             try:
                 quantidade = int(input("Digite a quantidade que deseja adicionar: "))
             except ValueError:
@@ -40,22 +51,28 @@ while True:
                 continue
 
             #(estoque = estoque + quantidade) é menos utilizada que o de baixo, porém o resultado é o mesmo.
+
             estoque += quantidade
             print("\n" f"Estoque atualizado de {produto} para: {estoque}")
 
             break
 
-    #Se a opção escolhida for 2 para retirar produtos do estoque
+    #Se a opção escolhida for 2, retira produtos do estoque
+
     elif opcao == "2":
 
         while True:
-            #Utilizando try e except para tratar a entrada de dados, caso o usuário digite algo que não seja um número inteiro.
+
+            #Trata entradas que não sejam números inteiros
+
             try:
                 print("\n" f"{estoque} unidades disponíveis no estoque.")
                 quantidade = int(input("Digite a quantidade que deseja retirar: "))
             except ValueError:
                 print("\n" "Entrada inválida. Por favor, digite um número inteiro.")
                 continue
+
+            #Trata entradas que sejam negativas ou iguais a zero
 
             if quantidade <= 0:
                 print("\n" "A quantidade não pode ser negativa ou igual a zero.")
@@ -82,15 +99,18 @@ while True:
             estoque = estoque_atualizado
             print("\n" f"Estoque atualizado de {produto} para: {estoque}")
 
-    #Se a opção escolhida for 3 para cadastrar um novo produto
+    #Se a opção escolhida for 3, cadastra um novo produto
+
     elif opcao == "3":
         produto, estoque = cadastrar_produto()
 
-    #Se a opção escolhida for 4 para sair do programa
+    #Se a opção escolhida for 4, sai do programa
+
     elif opcao == "4":
         print("\n" "Saindo do programa...")
         break
 
     #Se a opção escolhida for diferente de 1, 2 ,3 ou 4 exibe uma mensagem de erro.
+
     else:
         print("\n" "Opção inválida. Por favor, escolha uma opção válida.")
