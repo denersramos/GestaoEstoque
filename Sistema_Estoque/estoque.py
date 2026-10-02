@@ -17,14 +17,14 @@ while True:
 
     #Menu de opções
     print("\n O que você deseja fazer?")
-    print("1. Adicionar produtos")
-    print("2. Retirar produtos")
+    print("1. Adicionar produtos ao estoque")
+    print("2. Retirar produtos do estoque")
     print("3. Cadastrar novo produto")
     print("4. Sair do programa")
 
     opcao = input("\n" "Escolha uma opção: ")
 
-    #Se a opção escolhida for 1 para adicionar produtos
+    #Se a opção escolhida for 1 para adicionar produtos ao estoque
     if opcao == "1":
 
         while True:
@@ -45,7 +45,7 @@ while True:
 
             break
 
-    #Se a opção escolhida for 2 para retirar produtos
+    #Se a opção escolhida for 2 para retirar produtos do estoque
     elif opcao == "2":
 
         while True:
@@ -86,6 +86,7 @@ while True:
     elif opcao == "3":
         produto, estoque = cadastrar_produto()
 
+    #Se a opção escolhida for 4 para sair do programa
     elif opcao == "4":
         print("\n" "Saindo do programa...")
         break
